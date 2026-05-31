@@ -1,0 +1,268 @@
+import React, { useMemo, useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import jsPDF from "jspdf";
+
+// -----------------------------
+// Utility
+// -----------------------------
+function shuffle(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// -----------------------------
+// Level config (NEW)
+// -----------------------------
+const LEVEL_CONFIG = {
+  junior: { min: 1, max: 3 },
+  mid: { min: 3, max: 6 },
+  senior: { min: 6, max: 8 },
+  staff: { min: 8, max: 10 }
+};
+
+const LEVELS = Object.keys(LEVEL_CONFIG);
+
+// -----------------------------
+// Skill Graph
+// -----------------------------
+const SKILL_GRAPH = {
+  fundamentals: 1,
+  concurrency: 2,
+  networking: 3,
+  system_design: 4,
+  distributed_systems: 5,
+  performance: 4
+};
+
+const SKILL_TAGS = Object.keys(SKILL_GRAPH);
+
+// -----------------------------
+// Large Question Bank
+// -----------------------------
+const QUESTION_BANK = Array.from({ length: 1200 }).map((_, i) => {
+  const skill = SKILL_TAGS[i % SKILL_TAGS.length];
+  const difficulty = (i % 10) + 1;
+
+  return {
+    id: i,
+    q: `[${skill.toUpperCase()}] Go Question #${i + 1}: Explain concept ${i + 1} in ${skill}?`,
+    a: `Standard answer for ${skill} concept ${i + 1}.`,
+    skill,
+    difficulty,
+    weight: SKILL_GRAPH[skill]
+  };
+});
+
+// -----------------------------
+// Skill-based + level-aware selector
+// -----------------------------
+function pickNextQuestion(pool, asked, scoresMap, level) {
+  const { min, max } = LEVEL_CONFIG[level];
+
+  const remaining = pool.filter(
+    q => !asked.has(q.id) && q.difficulty >= min && q.difficulty <= max
+  );
+
+  if (remaining.length === 0) return null;
+
+  // find weakest skill
+  let weakestSkill = "fundamentals";
+  let minScore = Infinity;
+
+  for (const skill of Object.keys(SKILL_GRAPH)) {
+    const score = scoresMap[skill] ?? 0;
+    if (score < minScore) {
+      minScore = score;
+      weakestSkill = skill;
+    }
+  }
+
+  const candidates = remaining.filter(q => q.skill === weakestSkill);
+  const chosenPool = candidates.length > 0 ? candidates : remaining;
+
+  return chosenPool[Math.floor(Math.random() * chosenPool.length)];
+}
+
+// -----------------------------
+// Main App
+// -----------------------------
+export default function GoInterviewPlatform() {
+  const [level, setLevel] = useState("junior");
+  const [sessionQuestions, setSessionQuestions] = useState([]);
+  const [current, setCurrent] = useState(null);
+  const [asked, setAsked] = useState(new Set());
+  const [index, setIndex] = useState(0);
+  const [scores, setScores] = useState([]);
+  const [notes, setNotes] = useState("");
+  const [report, setReport] = useState(null);
+  const [scoresMap, setScoresMap] = useState({});
+  const [targetCount, setTargetCount] = useState(20);
+  const [running, setRunning] = useState(true);
+
+  // init session
+  useEffect(() => {
+    const first = pickNextQuestion(QUESTION_BANK, new Set(), {}, level);
+    setCurrent(first);
+    setAsked(new Set([first.id]));
+    setSessionQuestions([first]);
+    setIndex(0);
+    setScores([]);
+    setScoresMap({});
+    setReport(null);
+    setRunning(true);
+  }, [level]);
+
+  function rate(score) {
+    const newScores = [...scores];
+    newScores[index] = score;
+    setScores(newScores);
+
+    const q = current;
+    if (!q) return;
+
+    const updated = { ...scoresMap };
+    updated[q.skill] = ((updated[q.skill] ?? 0) + score) / 2;
+    setScoresMap(updated);
+  }
+
+  function next() {
+    if (!running) return;
+
+    const nextQ = pickNextQuestion(QUESTION_BANK, asked, scoresMap, level);
+    if (!nextQ) return;
+
+    setSessionQuestions(prev => [...prev, nextQ]);
+    setAsked(prev => new Set([...prev, nextQ.id]));
+    setCurrent(nextQ);
+    setIndex(i => i + 1);
+  }
+
+  function prev() {
+    if (index > 0) {
+      setIndex(i => i - 1);
+      setCurrent(sessionQuestions[index - 1]);
+    }
+  }
+
+  function endInterview() {
+    setRunning(false);
+
+    const total = scores.reduce((a, b) => a + b, 0);
+    const percent = ((total / (scores.length * 10)) * 100).toFixed(1);
+
+    let result = "Weak";
+    if (percent > 80) result = "Strong Candidate";
+    else if (percent > 60) result = "Mid Candidate";
+    else if (percent > 40) result = "Junior Candidate";
+
+    setReport({ percent, result });
+  }
+
+  function exportPDF() {
+    const doc = new jsPDF();
+
+    doc.text("Go Interview Report", 10, 10);
+    doc.text(`Level: ${level}`, 10, 20);
+    doc.text(`Questions: ${sessionQuestions.length}`, 10, 30);
+
+    let y = 40;
+
+    sessionQuestions.forEach((q, i) => {
+      doc.text(`${i + 1}. ${q.q}`, 10, y);
+      y += 7;
+      doc.text(`Answer: ${q.a}`, 10, y);
+      y += 10;
+    });
+
+    doc.text(`Notes: ${notes}`, 10, y + 10);
+
+    doc.save("interview-report.pdf");
+  }
+
+  if (!current) return <div>Loading...</div>;
+
+  return (
+    <div className="p-6 max-w-3xl mx-auto space-y-4">
+      <h1 className="text-2xl font-bold">Go Interview Platform (Adaptive Level-Based)</h1>
+
+      {/* LEVEL SELECTOR (NEW) */}
+      <div className="flex gap-2 items-center">
+        <label>Candidate Level:</label>
+        <select value={level} onChange={(e) => setLevel(e.target.value)}>
+          {LEVELS.map(lvl => (
+            <option key={lvl} value={lvl}>{lvl}</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="flex gap-2 items-center">
+        <label>Target Questions:</label>
+        <input
+          type="number"
+          value={targetCount}
+          onChange={(e) => setTargetCount(Number(e.target.value))}
+        />
+      </div>
+
+      <Card>
+        <CardContent className="p-4 space-y-3">
+          <div className="text-lg font-semibold">
+            Q{index + 1}: {current.q}
+          </div>
+
+          <div className="text-sm text-gray-600">
+            <strong>Answer:</strong> {current.a}
+          </div>
+
+          <div className="flex gap-2">
+            {[1,2,3,4,5,6,7,8,9,10].map((s) => (
+              <Button key={s} size="sm" onClick={() => rate(s)}>
+                {s}
+              </Button>
+            ))}
+          </div>
+
+          <div className="flex justify-between">
+            <Button onClick={prev}>Prev</Button>
+            <Button
+              onClick={next}
+              disabled={sessionQuestions.length >= targetCount}
+            >
+              Next Question
+            </Button>
+          </div>
+
+          <Button onClick={endInterview} variant="outline">
+            End Interview
+          </Button>
+        </CardContent>
+      </Card>
+
+      <Textarea
+        placeholder="Interview notes..."
+        value={notes}
+        onChange={(e) => setNotes(e.target.value)}
+      />
+
+      <div className="flex gap-2">
+        <Button onClick={exportPDF}>Export PDF</Button>
+      </div>
+
+      {report && (
+        <Card>
+          <CardContent className="p-4">
+            <h2 className="text-xl font-bold">Final Report</h2>
+            <p>Score: {report.percent}%</p>
+            <p>Result: {report.result}</p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}

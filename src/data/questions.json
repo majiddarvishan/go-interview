@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is a goroutine in Go?",
+    "a": "A lightweight thread managed by Go runtime."
+  },
+  {
+    "id": 2,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "Difference between array and slice in Go?",
+    "a": "Array is fixed size, slice is dynamic view over array."
+  },
+  {
+    "id": 3,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 3,
+    "q": "What is zero value in Go?",
+    "a": "Default value assigned to variables (0, false, nil)."
+  },
+
+  {
+    "id": 10,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "Explain Go scheduler (GMP model).",
+    "a": "Goroutines are scheduled via G-M-P model mapping goroutines to OS threads."
+  },
+  {
+    "id": 11,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 6,
+    "q": "What is a race condition?",
+    "a": "When multiple goroutines access shared memory without synchronization."
+  },
+
+  {
+    "id": 20,
+    "level": "senior",
+    "skill": "system_design",
+    "difficulty": 7,
+    "q": "Design a scalable API in Go.",
+    "a": "Use stateless services, caching, load balancing, and horizontal scaling."
+  },
+
+  {
+    "id": 30,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 9,
+    "q": "Design a distributed messaging system.",
+    "a": "Partitioning, replication, durability, backpressure handling."
+  }
+]
