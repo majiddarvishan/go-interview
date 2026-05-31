@@ -3,59 +3,1600 @@
     "id": 1,
     "level": "junior",
     "skill": "fundamentals",
-    "difficulty": 2,
-    "q": "What is a goroutine in Go?",
-    "a": "A lightweight thread managed by Go runtime."
+    "difficulty": 1,
+    "q": "What is Go?",
+    "a": "Go is a statically typed, compiled programming language created at Google, designed for simplicity, concurrency, and performance."
   },
   {
     "id": 2,
     "level": "junior",
     "skill": "fundamentals",
-    "difficulty": 2,
-    "q": "Difference between array and slice in Go?",
-    "a": "Array is fixed size, slice is dynamic view over array."
+    "difficulty": 1,
+    "q": "What are the main advantages of Go?",
+    "a": "Simple syntax, fast compilation, built-in concurrency, garbage collection, static typing, and strong standard library."
   },
   {
     "id": 3,
     "level": "junior",
     "skill": "fundamentals",
-    "difficulty": 3,
-    "q": "What is zero value in Go?",
-    "a": "Default value assigned to variables (0, false, nil)."
+    "difficulty": 1,
+    "q": "What is the entry point of a Go application?",
+    "a": "The main() function inside package main."
   },
-
+  {
+    "id": 4,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 1,
+    "q": "What is a package in Go?",
+    "a": "A package is a collection of related Go source files."
+  },
+  {
+    "id": 5,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 1,
+    "q": "How do you declare a variable in Go?",
+    "a": "Using var, short declaration :=, or explicit type declaration."
+  },
+  {
+    "id": 6,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 1,
+    "q": "What is type inference?",
+    "a": "Go automatically determines the variable type from the assigned value."
+  },
+  {
+    "id": 7,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 1,
+    "q": "What is a constant?",
+    "a": "A value that cannot be changed after declaration."
+  },
+  {
+    "id": 8,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 1,
+    "q": "What is the zero value in Go?",
+    "a": "The default value assigned to variables when not initialized."
+  },
+  {
+    "id": 9,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is the zero value of int?",
+    "a": "0"
+  },
   {
     "id": 10,
-    "level": "mid",
-    "skill": "concurrency",
-    "difficulty": 5,
-    "q": "Explain Go scheduler (GMP model).",
-    "a": "Goroutines are scheduled via G-M-P model mapping goroutines to OS threads."
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is the zero value of bool?",
+    "a": "false"
   },
   {
     "id": 11,
-    "level": "mid",
-    "skill": "concurrency",
-    "difficulty": 6,
-    "q": "What is a race condition?",
-    "a": "When multiple goroutines access shared memory without synchronization."
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is the zero value of string?",
+    "a": "Empty string \"\""
   },
-
+  {
+    "id": 12,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is a pointer?",
+    "a": "A variable that stores the memory address of another variable."
+  },
+  {
+    "id": 13,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "Does Go support pointer arithmetic?",
+    "a": "No."
+  },
+  {
+    "id": 14,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is an array?",
+    "a": "A fixed-size collection of elements of the same type."
+  },
+  {
+    "id": 15,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is a slice?",
+    "a": "A dynamic view over an underlying array."
+  },
+  {
+    "id": 16,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "Difference between array and slice?",
+    "a": "Arrays have fixed size; slices are dynamic and reference arrays."
+  },
+  {
+    "id": 17,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What does len() return?",
+    "a": "The number of elements."
+  },
+  {
+    "id": 18,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What does cap() return?",
+    "a": "The capacity of a slice."
+  },
+  {
+    "id": 19,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What does append() do?",
+    "a": "Adds elements to a slice."
+  },
   {
     "id": 20,
-    "level": "senior",
-    "skill": "system_design",
-    "difficulty": 7,
-    "q": "Design a scalable API in Go.",
-    "a": "Use stateless services, caching, load balancing, and horizontal scaling."
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is a map?",
+    "a": "A key-value data structure."
   },
-
+  {
+    "id": 21,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "How do you check if a key exists in a map?",
+    "a": "value, ok := myMap[key]"
+  },
+  {
+    "id": 22,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is a struct?",
+    "a": "A composite type that groups fields together."
+  },
+  {
+    "id": 23,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is a method?",
+    "a": "A function with a receiver."
+  },
+  {
+    "id": 24,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "What is an interface?",
+    "a": "A type that defines behavior through methods."
+  },
+  {
+    "id": 25,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 2,
+    "q": "How are interfaces implemented in Go?",
+    "a": "Implicitly by implementing required methods."
+  },
+  {
+    "id": 26,
+    "level": "junior",
+    "skill": "error_handling",
+    "difficulty": 2,
+    "q": "How does Go handle errors?",
+    "a": "By returning error values."
+  },
+  {
+    "id": 27,
+    "level": "junior",
+    "skill": "error_handling",
+    "difficulty": 2,
+    "q": "What is the error interface?",
+    "a": "An interface with Error() string method."
+  },
+  {
+    "id": 28,
+    "level": "junior",
+    "skill": "error_handling",
+    "difficulty": 2,
+    "q": "What is panic?",
+    "a": "A runtime mechanism that stops normal execution."
+  },
+  {
+    "id": 29,
+    "level": "junior",
+    "skill": "error_handling",
+    "difficulty": 2,
+    "q": "What is recover()?",
+    "a": "Used to recover from a panic."
+  },
   {
     "id": 30,
-    "level": "staff",
+    "level": "junior",
+    "skill": "error_handling",
+    "difficulty": 2,
+    "q": "What is defer?",
+    "a": "Schedules a function call to execute before function returns."
+  },
+  {
+    "id": 31,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What is a goroutine?",
+    "a": "A lightweight thread managed by the Go runtime."
+  },
+  {
+    "id": 32,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "How do you start a goroutine?",
+    "a": "Using the go keyword."
+  },
+  {
+    "id": 33,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What is a channel?",
+    "a": "A mechanism for communication between goroutines."
+  },
+  {
+    "id": 34,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What is an unbuffered channel?",
+    "a": "A channel where send and receive synchronize directly."
+  },
+  {
+    "id": 35,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What is a buffered channel?",
+    "a": "A channel that can store values before receiving."
+  },
+  {
+    "id": 36,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What happens when sending to a full buffered channel?",
+    "a": "The sender blocks."
+  },
+  {
+    "id": 37,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What is select?",
+    "a": "Waits on multiple channel operations."
+  },
+  {
+    "id": 38,
+    "level": "junior",
+    "skill": "concurrency",
+    "difficulty": 3,
+    "q": "What is a deadlock?",
+    "a": "When goroutines wait forever and no progress can be made."
+  },
+  {
+    "id": 39,
+    "level": "junior",
+    "skill": "testing",
+    "difficulty": 3,
+    "q": "What package is used for testing?",
+    "a": "testing"
+  },
+  {
+    "id": 40,
+    "level": "junior",
+    "skill": "testing",
+    "difficulty": 3,
+    "q": "How do you run tests?",
+    "a": "go test"
+  },
+  {
+    "id": 41,
+    "level": "junior",
+    "skill": "modules",
+    "difficulty": 3,
+    "q": "What is go.mod?",
+    "a": "Defines module dependencies and module name."
+  },
+  {
+    "id": 42,
+    "level": "junior",
+    "skill": "modules",
+    "difficulty": 3,
+    "q": "What is go.sum?",
+    "a": "Stores dependency checksums."
+  },
+  {
+    "id": 43,
+    "level": "junior",
+    "skill": "standard_library",
+    "difficulty": 3,
+    "q": "What does fmt.Println do?",
+    "a": "Prints formatted output with newline."
+  },
+  {
+    "id": 44,
+    "level": "junior",
+    "skill": "standard_library",
+    "difficulty": 3,
+    "q": "What package handles JSON?",
+    "a": "encoding/json"
+  },
+  {
+    "id": 45,
+    "level": "junior",
+    "skill": "standard_library",
+    "difficulty": 3,
+    "q": "What package handles HTTP servers?",
+    "a": "net/http"
+  },
+  {
+    "id": 46,
+    "level": "junior",
+    "skill": "standard_library",
+    "difficulty": 3,
+    "q": "What package provides logging?",
+    "a": "log"
+  },
+  {
+    "id": 47,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 3,
+    "q": "What is a rune?",
+    "a": "An alias for int32 representing a Unicode code point."
+  },
+  {
+    "id": 48,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 3,
+    "q": "What is a byte?",
+    "a": "An alias for uint8."
+  },
+  {
+    "id": 49,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 3,
+    "q": "How are strings stored in Go?",
+    "a": "As immutable byte sequences."
+  },
+  {
+    "id": 50,
+    "level": "junior",
+    "skill": "fundamentals",
+    "difficulty": 3,
+    "q": "Are strings mutable in Go?",
+    "a": "No, strings are immutable."
+  },
+    {
+    "id": 51,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "What is the GMP scheduler model in Go?",
+    "a": "G is Goroutine, M is OS Thread, P is Processor. The scheduler maps goroutines onto OS threads using processors."
+  },
+  {
+    "id": 52,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "Why are goroutines cheaper than OS threads?",
+    "a": "They start with small stacks, are managed by the Go runtime, and have lower context-switch overhead."
+  },
+  {
+    "id": 53,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "What is a race condition?",
+    "a": "When multiple goroutines access shared data concurrently and at least one modifies it without synchronization."
+  },
+  {
+    "id": 54,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "How do you detect race conditions?",
+    "a": "Using go test -race or go run -race."
+  },
+  {
+    "id": 55,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "What is sync.Mutex used for?",
+    "a": "To protect shared resources from concurrent access."
+  },
+  {
+    "id": 56,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "What is sync.RWMutex?",
+    "a": "A mutex allowing multiple readers or one writer."
+  },
+  {
+    "id": 57,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "When would you choose RWMutex over Mutex?",
+    "a": "When reads significantly outnumber writes."
+  },
+  {
+    "id": 58,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "What is sync.WaitGroup?",
+    "a": "A synchronization primitive that waits for goroutines to complete."
+  },
+  {
+    "id": 59,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 4,
+    "q": "What happens if WaitGroup.Done is forgotten?",
+    "a": "Wait() may block forever."
+  },
+  {
+    "id": 60,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What is sync.Once?",
+    "a": "Guarantees a function executes exactly once."
+  },
+  {
+    "id": 61,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What is sync.Cond?",
+    "a": "A condition variable used for signaling between goroutines."
+  },
+  {
+    "id": 62,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What is atomic operation?",
+    "a": "An operation performed without interruption, often using sync/atomic."
+  },
+  {
+    "id": 63,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What is a worker pool?",
+    "a": "A pattern where a fixed number of workers process tasks from a queue."
+  },
+  {
+    "id": 64,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What is fan-out pattern?",
+    "a": "Distributing work to multiple goroutines."
+  },
+  {
+    "id": 65,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What is fan-in pattern?",
+    "a": "Combining results from multiple goroutines into one channel."
+  },
+  {
+    "id": 66,
+    "level": "mid",
+    "skill": "concurrency",
+    "difficulty": 5,
+    "q": "What causes goroutine leaks?",
+    "a": "Blocked channels, missing cancellations, or infinite loops."
+  },
+  {
+    "id": 67,
+    "level": "mid",
+    "skill": "context",
+    "difficulty": 5,
+    "q": "What is context.Context?",
+    "a": "A mechanism for cancellation, deadlines, and request-scoped values."
+  },
+  {
+    "id": 68,
+    "level": "mid",
+    "skill": "context",
+    "difficulty": 5,
+    "q": "Why is context important in servers?",
+    "a": "It allows request cancellation and timeout propagation."
+  },
+  {
+    "id": 69,
+    "level": "mid",
+    "skill": "context",
+    "difficulty": 5,
+    "q": "What is context.WithCancel?",
+    "a": "Creates a context that can be canceled manually."
+  },
+  {
+    "id": 70,
+    "level": "mid",
+    "skill": "context",
+    "difficulty": 5,
+    "q": "What is context.WithTimeout?",
+    "a": "Creates a context that automatically cancels after a duration."
+  },
+  {
+    "id": 71,
+    "level": "mid",
+    "skill": "context",
+    "difficulty": 5,
+    "q": "Should business data be stored in context?",
+    "a": "No. Context should only contain request-scoped metadata."
+  },
+  {
+    "id": 72,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 5,
+    "q": "How does net/http handle requests?",
+    "a": "Each incoming request is handled in its own goroutine."
+  },
+  {
+    "id": 73,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 5,
+    "q": "What is http.Handler?",
+    "a": "An interface with ServeHTTP(ResponseWriter, *Request)."
+  },
+  {
+    "id": 74,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 5,
+    "q": "What is middleware?",
+    "a": "A wrapper around handlers that adds functionality such as logging or authentication."
+  },
+  {
+    "id": 75,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 5,
+    "q": "How do you create a REST API in Go?",
+    "a": "Using net/http or frameworks such as Gin, Echo, or Fiber."
+  },
+  {
+    "id": 76,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 5,
+    "q": "What is connection pooling in HTTP clients?",
+    "a": "Reusing TCP connections to reduce latency and resource usage."
+  },
+  {
+    "id": 77,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 5,
+    "q": "Why should you reuse http.Client?",
+    "a": "To benefit from connection pooling."
+  },
+  {
+    "id": 78,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 6,
+    "q": "What happens if response.Body is not closed?",
+    "a": "Connections may leak and the pool can become exhausted."
+  },
+  {
+    "id": 79,
+    "level": "mid",
+    "skill": "http",
+    "difficulty": 6,
+    "q": "What is TLS?",
+    "a": "A protocol providing encrypted communication over networks."
+  },
+  {
+    "id": 80,
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 5,
+    "q": "How are unit tests written in Go?",
+    "a": "Using functions named TestXxx with the testing package."
+  },
+  {
+    "id": 81,
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 5,
+    "q": "What is table-driven testing?",
+    "a": "Running multiple test cases from a slice of test data."
+  },
+  {
+    "id": 82,
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 5,
+    "q": "How do you run benchmarks?",
+    "a": "Using go test -bench=."
+  },
+  {
+    "id": 83,
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 5,
+    "q": "What is BenchmarkXxx?",
+    "a": "A benchmark function used for performance measurement."
+  },
+  {
+    "id": 84,
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 5,
+    "q": "What is mocking?",
+    "a": "Replacing real dependencies with test doubles."
+  },
+  {
+    "id": 85,
+    "level": "mid",
+    "skill": "testing",
+    "difficulty": 6,
+    "q": "Why are interfaces useful in testing?",
+    "a": "They allow dependencies to be mocked easily."
+  },
+  {
+    "id": 86,
+    "level": "mid",
+    "skill": "memory",
+    "difficulty": 6,
+    "q": "What is escape analysis?",
+    "a": "A compiler optimization deciding whether variables live on stack or heap."
+  },
+  {
+    "id": 87,
+    "level": "mid",
+    "skill": "memory",
+    "difficulty": 6,
+    "q": "Why is stack allocation faster than heap allocation?",
+    "a": "It requires less bookkeeping and avoids GC overhead."
+  },
+  {
+    "id": 88,
+    "level": "mid",
+    "skill": "memory",
+    "difficulty": 6,
+    "q": "What is a memory leak in Go?",
+    "a": "Keeping references to unused objects so GC cannot reclaim them."
+  },
+  {
+    "id": 89,
+    "level": "mid",
+    "skill": "gc",
+    "difficulty": 6,
+    "q": "What is Go's garbage collector?",
+    "a": "A concurrent mark-and-sweep collector."
+  },
+  {
+    "id": 90,
+    "level": "mid",
+    "skill": "gc",
+    "difficulty": 6,
+    "q": "What is a stop-the-world pause?",
+    "a": "A brief period when all goroutines are paused during GC activities."
+  },
+  {
+    "id": 91,
+    "level": "mid",
+    "skill": "profiling",
+    "difficulty": 6,
+    "q": "What is pprof?",
+    "a": "Go's profiling tool for CPU, memory, goroutines, and more."
+  },
+  {
+    "id": 92,
+    "level": "mid",
+    "skill": "profiling",
+    "difficulty": 6,
+    "q": "How do you collect a CPU profile?",
+    "a": "Using runtime/pprof or net/http/pprof."
+  },
+  {
+    "id": 93,
+    "level": "mid",
+    "skill": "profiling",
+    "difficulty": 6,
+    "q": "How do you identify memory-heavy code?",
+    "a": "Using heap profiles from pprof."
+  },
+  {
+    "id": 94,
+    "level": "mid",
+    "skill": "design",
+    "difficulty": 6,
+    "q": "What is dependency injection?",
+    "a": "Providing dependencies from outside instead of creating them internally."
+  },
+  {
+    "id": 95,
+    "level": "mid",
+    "skill": "design",
+    "difficulty": 6,
+    "q": "Why prefer composition over inheritance in Go?",
+    "a": "Go encourages composition through embedding and interfaces."
+  },
+  {
+    "id": 96,
+    "level": "mid",
+    "skill": "design",
+    "difficulty": 6,
+    "q": "What is struct embedding?",
+    "a": "Including one struct inside another to promote its fields and methods."
+  },
+  {
+    "id": 97,
+    "level": "mid",
+    "skill": "design",
+    "difficulty": 6,
+    "q": "What is interface segregation?",
+    "a": "Using small focused interfaces instead of large ones."
+  },
+  {
+    "id": 98,
+    "level": "mid",
+    "skill": "performance",
+    "difficulty": 6,
+    "q": "What is sync.Pool?",
+    "a": "A cache of reusable objects to reduce allocations and GC pressure."
+  },
+  {
+    "id": 99,
+    "level": "mid",
+    "skill": "performance",
+    "difficulty": 6,
+    "q": "When can sync.Pool improve performance?",
+    "a": "When frequently allocating short-lived objects."
+  },
+  {
+    "id": 100,
+    "level": "mid",
+    "skill": "performance",
+    "difficulty": 6,
+    "q": "What is backpressure in concurrent systems?",
+    "a": "A mechanism that prevents producers from overwhelming consumers."
+  },
+    {
+    "id": 101,
+    "level": "senior",
+    "skill": "runtime",
+    "difficulty": 7,
+    "q": "Explain the G-P-M scheduler model in detail.",
+    "a": "Goroutines (G) are scheduled onto logical processors (P), which execute on OS threads (M). The scheduler balances work using local and global run queues."
+  },
+  {
+    "id": 102,
+    "level": "senior",
+    "skill": "runtime",
+    "difficulty": 7,
+    "q": "What is work stealing in Go scheduler?",
+    "a": "An idle processor steals runnable goroutines from another processor's queue."
+  },
+  {
+    "id": 103,
+    "level": "senior",
+    "skill": "runtime",
+    "difficulty": 7,
+    "q": "What problem does scheduler preemption solve?",
+    "a": "It prevents CPU-bound goroutines from starving others."
+  },
+  {
+    "id": 104,
+    "level": "senior",
+    "skill": "runtime",
+    "difficulty": 7,
+    "q": "What is stack growth in goroutines?",
+    "a": "Goroutines start with small stacks and grow dynamically as needed."
+  },
+  {
+    "id": 105,
+    "level": "senior",
+    "skill": "runtime",
+    "difficulty": 7,
+    "q": "What is the purpose of GOMAXPROCS?",
+    "a": "It controls how many OS threads can execute Go code simultaneously."
+  },
+  {
+    "id": 106,
+    "level": "senior",
+    "skill": "memory",
+    "difficulty": 7,
+    "q": "Explain escape analysis.",
+    "a": "The compiler determines whether variables can remain on the stack or must be allocated on the heap."
+  },
+  {
+    "id": 107,
+    "level": "senior",
+    "skill": "memory",
+    "difficulty": 7,
+    "q": "How do heap allocations impact performance?",
+    "a": "They increase GC pressure and allocation overhead."
+  },
+  {
+    "id": 108,
+    "level": "senior",
+    "skill": "memory",
+    "difficulty": 7,
+    "q": "What tools help identify excessive allocations?",
+    "a": "pprof, alloc profiles, benchmark -benchmem."
+  },
+  {
+    "id": 109,
+    "level": "senior",
+    "skill": "gc",
+    "difficulty": 8,
+    "q": "Describe Go's garbage collector.",
+    "a": "Concurrent tri-color mark-and-sweep collector optimized for low latency."
+  },
+  {
+    "id": 110,
+    "level": "senior",
+    "skill": "gc",
+    "difficulty": 8,
+    "q": "What is tri-color marking?",
+    "a": "Objects are categorized as white, gray, or black during GC traversal."
+  },
+  {
+    "id": 111,
+    "level": "senior",
+    "skill": "gc",
+    "difficulty": 8,
+    "q": "How can GC latency be reduced?",
+    "a": "Reduce allocations, reuse buffers, tune memory usage."
+  },
+  {
+    "id": 112,
+    "level": "senior",
+    "skill": "concurrency",
+    "difficulty": 8,
+    "q": "What is the Go memory model?",
+    "a": "Defines guarantees about visibility of memory operations between goroutines."
+  },
+  {
+    "id": 113,
+    "level": "senior",
+    "skill": "concurrency",
+    "difficulty": 8,
+    "q": "What does 'happens-before' mean?",
+    "a": "One operation's effects are guaranteed visible to another."
+  },
+  {
+    "id": 114,
+    "level": "senior",
+    "skill": "concurrency",
+    "difficulty": 8,
+    "q": "When should atomic operations be preferred over mutexes?",
+    "a": "For simple counters and lightweight synchronization."
+  },
+  {
+    "id": 115,
+    "level": "senior",
+    "skill": "concurrency",
+    "difficulty": 8,
+    "q": "What is lock contention?",
+    "a": "Many goroutines competing for the same lock."
+  },
+  {
+    "id": 116,
+    "level": "senior",
+    "skill": "networking",
+    "difficulty": 8,
+    "q": "How does netpoll work in Go?",
+    "a": "The runtime uses epoll/kqueue/IOCP to efficiently handle many connections."
+  },
+  {
+    "id": 117,
+    "level": "senior",
+    "skill": "networking",
+    "difficulty": 8,
+    "q": "Why can Go handle many TCP connections efficiently?",
+    "a": "Goroutines are lightweight and I/O is multiplexed."
+  },
+  {
+    "id": 118,
+    "level": "senior",
+    "skill": "networking",
+    "difficulty": 8,
+    "q": "What causes connection leaks?",
+    "a": "Not closing sockets or HTTP response bodies."
+  },
+  {
+    "id": 119,
+    "level": "senior",
+    "skill": "networking",
+    "difficulty": 8,
+    "q": "How would you build a high-throughput TCP server?",
+    "a": "Connection pooling, buffer reuse, efficient parsing, minimal allocations."
+  },
+  {
+    "id": 120,
+    "level": "senior",
+    "skill": "http",
+    "difficulty": 8,
+    "q": "What are common HTTP server bottlenecks?",
+    "a": "Database latency, excessive allocations, lock contention, slow downstream services."
+  },
+  {
+    "id": 121,
+    "level": "senior",
+    "skill": "profiling",
+    "difficulty": 8,
+    "q": "How do you investigate high CPU usage?",
+    "a": "Collect CPU profiles using pprof and analyze hotspots."
+  },
+  {
+    "id": 122,
+    "level": "senior",
+    "skill": "profiling",
+    "difficulty": 8,
+    "q": "How do you identify goroutine leaks?",
+    "a": "Inspect goroutine profiles and runtime stack dumps."
+  },
+  {
+    "id": 123,
+    "level": "senior",
+    "skill": "profiling",
+    "difficulty": 8,
+    "q": "What does heap profiling show?",
+    "a": "Memory allocation patterns and retained objects."
+  },
+  {
+    "id": 124,
+    "level": "senior",
+    "skill": "database",
+    "difficulty": 8,
+    "q": "How do you avoid N+1 query problems?",
+    "a": "Use joins, batching, eager loading, or caching."
+  },
+  {
+    "id": 125,
+    "level": "senior",
+    "skill": "database",
+    "difficulty": 8,
+    "q": "What is connection pooling?",
+    "a": "Reusing established database connections."
+  },
+  {
+    "id": 126,
+    "level": "senior",
+    "skill": "database",
+    "difficulty": 8,
+    "q": "What are common causes of DB bottlenecks?",
+    "a": "Missing indexes, slow queries, lock contention, connection exhaustion."
+  },
+  {
+    "id": 127,
+    "level": "senior",
+    "skill": "database",
+    "difficulty": 8,
+    "q": "When would you use Redis?",
+    "a": "Caching, rate limiting, queues, session storage."
+  },
+  {
+    "id": 128,
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 8,
+    "q": "Monolith vs microservices?",
+    "a": "Monolith is simpler initially; microservices improve independent scaling and deployment."
+  },
+  {
+    "id": 129,
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 8,
+    "q": "What are the challenges of microservices?",
+    "a": "Distributed transactions, observability, deployment complexity, network failures."
+  },
+  {
+    "id": 130,
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 8,
+    "q": "What is an API Gateway?",
+    "a": "A single entry point for clients providing routing, auth, rate limiting."
+  },
+  {
+    "id": 131,
+    "level": "senior",
+    "skill": "messaging",
+    "difficulty": 8,
+    "q": "Kafka vs RabbitMQ?",
+    "a": "Kafka is log-based and optimized for throughput; RabbitMQ is queue-oriented."
+  },
+  {
+    "id": 132,
+    "level": "senior",
+    "skill": "messaging",
+    "difficulty": 8,
+    "q": "Kafka vs NATS?",
+    "a": "Kafka emphasizes durability and replay; NATS emphasizes simplicity and low latency."
+  },
+  {
+    "id": 133,
+    "level": "senior",
+    "skill": "messaging",
+    "difficulty": 8,
+    "q": "What is at-least-once delivery?",
+    "a": "Messages may be delivered more than once."
+  },
+  {
+    "id": 134,
+    "level": "senior",
+    "skill": "messaging",
+    "difficulty": 8,
+    "q": "What is exactly-once delivery?",
+    "a": "A guarantee that each message is processed exactly once."
+  },
+  {
+    "id": 135,
+    "level": "senior",
+    "skill": "messaging",
+    "difficulty": 8,
+    "q": "What is backpressure?",
+    "a": "Mechanism preventing producers from overwhelming consumers."
+  },
+  {
+    "id": 136,
+    "level": "senior",
     "skill": "distributed_systems",
     "difficulty": 9,
-    "q": "Design a distributed messaging system.",
-    "a": "Partitioning, replication, durability, backpressure handling."
+    "q": "Explain CAP theorem.",
+    "a": "Distributed systems can only fully guarantee two of Consistency, Availability, Partition Tolerance."
+  },
+  {
+    "id": 137,
+    "level": "senior",
+    "skill": "distributed_systems",
+    "difficulty": 9,
+    "q": "What is eventual consistency?",
+    "a": "Replicas converge to the same state over time."
+  },
+  {
+    "id": 138,
+    "level": "senior",
+    "skill": "distributed_systems",
+    "difficulty": 9,
+    "q": "What is strong consistency?",
+    "a": "All clients immediately observe the latest committed write."
+  },
+  {
+    "id": 139,
+    "level": "senior",
+    "skill": "distributed_systems",
+    "difficulty": 9,
+    "q": "What is sharding?",
+    "a": "Partitioning data across multiple nodes."
+  },
+  {
+    "id": 140,
+    "level": "senior",
+    "skill": "distributed_systems",
+    "difficulty": 9,
+    "q": "What is replication?",
+    "a": "Maintaining copies of data across multiple nodes."
+  },
+  {
+    "id": 141,
+    "level": "senior",
+    "skill": "observability",
+    "difficulty": 8,
+    "q": "What are the three pillars of observability?",
+    "a": "Logs, metrics, and traces."
+  },
+  {
+    "id": 142,
+    "level": "senior",
+    "skill": "observability",
+    "difficulty": 8,
+    "q": "Why is distributed tracing important?",
+    "a": "It helps diagnose latency across multiple services."
+  },
+  {
+    "id": 143,
+    "level": "senior",
+    "skill": "observability",
+    "difficulty": 8,
+    "q": "What metrics are critical for APIs?",
+    "a": "Latency, throughput, error rate, saturation."
+  },
+  {
+    "id": 144,
+    "level": "senior",
+    "skill": "deployment",
+    "difficulty": 8,
+    "q": "What is a graceful shutdown?",
+    "a": "Stopping acceptance of new requests while finishing in-flight work."
+  },
+  {
+    "id": 145,
+    "level": "senior",
+    "skill": "deployment",
+    "difficulty": 8,
+    "q": "What is a rolling deployment?",
+    "a": "Gradually replacing old instances with new ones."
+  },
+  {
+    "id": 146,
+    "level": "senior",
+    "skill": "deployment",
+    "difficulty": 8,
+    "q": "What is a canary deployment?",
+    "a": "Deploying a new version to a small percentage of traffic first."
+  },
+  {
+    "id": 147,
+    "level": "senior",
+    "skill": "security",
+    "difficulty": 8,
+    "q": "How should secrets be managed?",
+    "a": "Using secret stores such as Vault, Kubernetes Secrets, or cloud secret managers."
+  },
+  {
+    "id": 148,
+    "level": "senior",
+    "skill": "security",
+    "difficulty": 8,
+    "q": "What are common API security concerns?",
+    "a": "Authentication, authorization, rate limiting, injection attacks."
+  },
+  {
+    "id": 149,
+    "level": "senior",
+    "skill": "security",
+    "difficulty": 8,
+    "q": "Why use TLS everywhere?",
+    "a": "To encrypt traffic and prevent interception."
+  },
+  {
+    "id": 150,
+    "level": "senior",
+    "skill": "architecture",
+    "difficulty": 9,
+    "q": "How would you design a Go service handling 100k requests/sec?",
+    "a": "Horizontal scaling, efficient networking, caching, connection pooling, observability, and careful allocation management."
+  },
+    {
+    "id": 151,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "Explain CAP theorem and how it affects real-world system design.",
+    "a": "A distributed system can only fully guarantee two of Consistency, Availability, and Partition Tolerance. Since network partitions are inevitable, systems typically choose between consistency and availability."
+  },
+  {
+    "id": 152,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "What is the difference between strong consistency and eventual consistency?",
+    "a": "Strong consistency guarantees all readers see the latest write. Eventual consistency guarantees replicas converge over time."
+  },
+  {
+    "id": 153,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "What is split-brain in distributed systems?",
+    "a": "A cluster partition where multiple nodes incorrectly believe they are the primary leader."
+  },
+  {
+    "id": 154,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "What problem does consensus solve?",
+    "a": "It ensures distributed nodes agree on a single state despite failures."
+  },
+  {
+    "id": 155,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "Explain Raft algorithm.",
+    "a": "A consensus algorithm using leader election, log replication, and safety guarantees."
+  },
+  {
+    "id": 156,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "Raft vs Paxos?",
+    "a": "Raft is easier to understand and implement. Paxos is more flexible but more complex."
+  },
+  {
+    "id": 157,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "What is quorum?",
+    "a": "The minimum number of nodes required to make a decision safely."
+  },
+  {
+    "id": 158,
+    "level": "staff",
+    "skill": "distributed_systems",
+    "difficulty": 10,
+    "q": "What is leader election?",
+    "a": "The process of selecting a coordinator node in a cluster."
+  },
+  {
+    "id": 159,
+    "level": "staff",
+    "skill": "messaging",
+    "difficulty": 10,
+    "q": "Kafka architecture overview.",
+    "a": "Kafka uses brokers, topics, partitions, producers, consumers, and replication."
+  },
+  {
+    "id": 160,
+    "level": "staff",
+    "skill": "messaging",
+    "difficulty": 10,
+    "q": "Why does Kafka achieve high throughput?",
+    "a": "Sequential disk writes, batching, zero-copy, partitioning, and pull-based consumption."
+  },
+  {
+    "id": 161,
+    "level": "staff",
+    "skill": "messaging",
+    "difficulty": 10,
+    "q": "Kafka vs NATS?",
+    "a": "Kafka prioritizes durability and replayability; NATS prioritizes simplicity, latency, and lightweight operations."
+  },
+  {
+    "id": 162,
+    "level": "staff",
+    "skill": "messaging",
+    "difficulty": 10,
+    "q": "What is consumer lag?",
+    "a": "The difference between produced offsets and consumed offsets."
+  },
+  {
+    "id": 163,
+    "level": "staff",
+    "skill": "messaging",
+    "difficulty": 10,
+    "q": "What is exactly-once processing?",
+    "a": "A guarantee that a message is processed once despite failures and retries."
+  },
+  {
+    "id": 164,
+    "level": "staff",
+    "skill": "messaging",
+    "difficulty": 10,
+    "q": "What is backpressure in messaging systems?",
+    "a": "A mechanism preventing producers from overwhelming consumers."
+  },
+  {
+    "id": 165,
+    "level": "staff",
+    "skill": "system_design",
+    "difficulty": 10,
+    "q": "Design a system that processes 1 million messages per second.",
+    "a": "Use partitioning, horizontal scaling, batching, async processing, efficient serialization, and observability."
+  },
+  {
+    "id": 166,
+    "level": "staff",
+    "skill": "system_design",
+    "difficulty": 10,
+    "q": "How would you design a globally distributed API?",
+    "a": "Use multi-region deployments, global load balancing, replication, caching, and failover strategies."
+  },
+  {
+    "id": 167,
+    "level": "staff",
+    "skill": "system_design",
+    "difficulty": 10,
+    "q": "How would you handle regional outages?",
+    "a": "Active-active or active-passive architecture with automated failover."
+  },
+  {
+    "id": 168,
+    "level": "staff",
+    "skill": "system_design",
+    "difficulty": 10,
+    "q": "What is RTO?",
+    "a": "Recovery Time Objective, maximum acceptable downtime."
+  },
+  {
+    "id": 169,
+    "level": "staff",
+    "skill": "system_design",
+    "difficulty": 10,
+    "q": "What is RPO?",
+    "a": "Recovery Point Objective, maximum acceptable data loss."
+  },
+  {
+    "id": 170,
+    "level": "staff",
+    "skill": "performance",
+    "difficulty": 10,
+    "q": "How do you identify performance bottlenecks in production?",
+    "a": "Metrics, tracing, profiling, logs, and load testing."
+  },
+  {
+    "id": 171,
+    "level": "staff",
+    "skill": "performance",
+    "difficulty": 10,
+    "q": "What metrics matter most for high-throughput systems?",
+    "a": "Latency, throughput, error rate, CPU, memory, queue depth, and saturation."
+  },
+  {
+    "id": 172,
+    "level": "staff",
+    "skill": "performance",
+    "difficulty": 10,
+    "q": "How would you tune a Go service for low latency?",
+    "a": "Reduce allocations, minimize GC pressure, reuse buffers, optimize network I/O."
+  },
+  {
+    "id": 173,
+    "level": "staff",
+    "skill": "observability",
+    "difficulty": 10,
+    "q": "What is distributed tracing?",
+    "a": "Tracking requests across multiple services using trace IDs."
+  },
+  {
+    "id": 174,
+    "level": "staff",
+    "skill": "observability",
+    "difficulty": 10,
+    "q": "What are RED metrics?",
+    "a": "Rate, Errors, Duration."
+  },
+  {
+    "id": 175,
+    "level": "staff",
+    "skill": "observability",
+    "difficulty": 10,
+    "q": "What are USE metrics?",
+    "a": "Utilization, Saturation, Errors."
+  },
+  {
+    "id": 176,
+    "level": "staff",
+    "skill": "reliability",
+    "difficulty": 10,
+    "q": "What is a circuit breaker?",
+    "a": "A pattern that prevents repeated calls to failing services."
+  },
+  {
+    "id": 177,
+    "level": "staff",
+    "skill": "reliability",
+    "difficulty": 10,
+    "q": "What is load shedding?",
+    "a": "Dropping excess traffic to protect system stability."
+  },
+  {
+    "id": 178,
+    "level": "staff",
+    "skill": "reliability",
+    "difficulty": 10,
+    "q": "What is graceful degradation?",
+    "a": "Maintaining core functionality while disabling non-critical features."
+  },
+  {
+    "id": 179,
+    "level": "staff",
+    "skill": "telecom",
+    "difficulty": 10,
+    "q": "How would you design a carrier-grade SMPP gateway?",
+    "a": "Connection pooling, horizontal scaling, persistence, retries, metrics, and HA deployment."
+  },
+  {
+    "id": 180,
+    "level": "staff",
+    "skill": "telecom",
+    "difficulty": 10,
+    "q": "How would you ensure no message loss in an SMS platform?",
+    "a": "Durable queues, acknowledgements, retries, persistence, and replication."
+  },
+  {
+    "id": 181,
+    "level": "staff",
+    "skill": "telecom",
+    "difficulty": 10,
+    "q": "What is store-and-forward messaging?",
+    "a": "Messages are persisted before delivery to tolerate failures."
+  },
+  {
+    "id": 182,
+    "level": "staff",
+    "skill": "telecom",
+    "difficulty": 10,
+    "q": "Design a USSD Gateway architecture.",
+    "a": "Session manager, routing engine, MAP/SIGTRAN integration, service APIs, and persistence."
+  },
+  {
+    "id": 183,
+    "level": "staff",
+    "skill": "architecture",
+    "difficulty": 10,
+    "q": "What is CQRS?",
+    "a": "Separating read and write models to optimize scalability."
+  },
+  {
+    "id": 184,
+    "level": "staff",
+    "skill": "architecture",
+    "difficulty": 10,
+    "q": "What is Event Sourcing?",
+    "a": "Persisting state changes as a sequence of immutable events."
+  },
+  {
+    "id": 185,
+    "level": "staff",
+    "skill": "architecture",
+    "difficulty": 10,
+    "q": "Benefits of Event Sourcing?",
+    "a": "Auditability, replayability, temporal debugging."
+  },
+  {
+    "id": 186,
+    "level": "staff",
+    "skill": "architecture",
+    "difficulty": 10,
+    "q": "Drawbacks of Event Sourcing?",
+    "a": "Complexity, storage growth, schema evolution challenges."
+  },
+  {
+    "id": 187,
+    "level": "staff",
+    "skill": "architecture",
+    "difficulty": 10,
+    "q": "What is bounded context?",
+    "a": "A domain-driven design boundary where a model has a specific meaning."
+  },
+  {
+    "id": 188,
+    "level": "staff",
+    "skill": "security",
+    "difficulty": 10,
+    "q": "How would you secure service-to-service communication?",
+    "a": "mTLS, authentication tokens, authorization policies, and network segmentation."
+  },
+  {
+    "id": 189,
+    "level": "staff",
+    "skill": "security",
+    "difficulty": 10,
+    "q": "What is Zero Trust Architecture?",
+    "a": "Assume no implicit trust; every request must be authenticated and authorized."
+  },
+  {
+    "id": 190,
+    "level": "staff",
+    "skill": "security",
+    "difficulty": 10,
+    "q": "How should secrets be managed at scale?",
+    "a": "Vault, cloud secret managers, automated rotation, and least privilege."
+  },
+  {
+    "id": 191,
+    "level": "staff",
+    "skill": "leadership",
+    "difficulty": 10,
+    "q": "How do you handle technical debt?",
+    "a": "Track, prioritize, allocate capacity, and reduce incrementally."
+  },
+  {
+    "id": 192,
+    "level": "staff",
+    "skill": "leadership",
+    "difficulty": 10,
+    "q": "How do you evaluate architectural tradeoffs?",
+    "a": "Analyze cost, complexity, scalability, reliability, and business requirements."
+  },
+  {
+    "id": 193,
+    "level": "staff",
+    "skill": "leadership",
+    "difficulty": 10,
+    "q": "How do you mentor senior engineers?",
+    "a": "Provide architectural guidance, design reviews, and growth opportunities."
+  },
+  {
+    "id": 194,
+    "level": "staff",
+    "skill": "leadership",
+    "difficulty": 10,
+    "q": "What makes a good technical leader?",
+    "a": "Strong technical judgment, communication, ownership, and mentoring skills."
+  },
+  {
+    "id": 195,
+    "level": "staff",
+    "skill": "incident_management",
+    "difficulty": 10,
+    "q": "How do you handle a major production outage?",
+    "a": "Mitigate impact, communicate clearly, restore service, and perform postmortem analysis."
+  },
+  {
+    "id": 196,
+    "level": "staff",
+    "skill": "incident_management",
+    "difficulty": 10,
+    "q": "What is a blameless postmortem?",
+    "a": "Analyzing failures without assigning personal blame."
+  },
+  {
+    "id": 197,
+    "level": "staff",
+    "skill": "incident_management",
+    "difficulty": 10,
+    "q": "What should every production service expose?",
+    "a": "Health checks, metrics, logs, traces, and readiness endpoints."
+  },
+  {
+    "id": 198,
+    "level": "staff",
+    "skill": "capacity_planning",
+    "difficulty": 10,
+    "q": "How do you estimate infrastructure capacity?",
+    "a": "Analyze throughput, latency, resource utilization, growth forecasts, and redundancy requirements."
+  },
+  {
+    "id": 199,
+    "level": "staff",
+    "skill": "capacity_planning",
+    "difficulty": 10,
+    "q": "What is horizontal scalability?",
+    "a": "Adding more nodes rather than increasing node size."
+  },
+  {
+    "id": 200,
+    "level": "staff",
+    "skill": "architecture",
+    "difficulty": 10,
+    "q": "Describe the architecture of a system you built and explain the key tradeoffs.",
+    "a": "The answer should evaluate architectural decisions, scalability, reliability, operational complexity, and business constraints."
   }
 ]
