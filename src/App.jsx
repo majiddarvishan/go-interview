@@ -2,27 +2,18 @@ import { useEffect, useState } from "react";
 import jsPDF from "jspdf";
 import questionsData from "./data/questions.json";
 
-// -----------------------------
-// CORE SETTINGS
-// -----------------------------
 const LEVELS = ["junior", "mid", "senior", "staff"];
 
-// -----------------------------
-// QUESTION PICKER
-// -----------------------------
 function pickQuestion(pool, asked, level) {
   const filtered = pool.filter(
     (q) => q.level === level && !asked.has(q.id)
   );
 
-  if (filtered.length === 0) return null;
+  if (!filtered.length) return null;
 
   return filtered[Math.floor(Math.random() * filtered.length)];
 }
 
-// -----------------------------
-// MAIN APP
-// -----------------------------
 export default function App() {
   const [level, setLevel] = useState("junior");
   const [targetCount, setTargetCount] = useState(10);
@@ -37,9 +28,6 @@ export default function App() {
   const [notes, setNotes] = useState("");
   const [report, setReport] = useState(null);
 
-  // -----------------------------
-  // INIT / RESET SESSION
-  // -----------------------------
   useEffect(() => {
     const first = pickQuestion(questionsData, new Set(), level);
 
@@ -53,189 +41,204 @@ export default function App() {
     setReport(null);
   }, [level]);
 
-  // -----------------------------
-  // RATE ANSWER
-  // -----------------------------
   function rate(score) {
     const copy = [...scores];
     copy[index] = score;
     setScores(copy);
   }
 
-  // -----------------------------
-  // NEXT QUESTION
-  // -----------------------------
   function next() {
     if (questions.length >= targetCount) return;
 
     const nextQ = pickQuestion(questionsData, asked, level);
     if (!nextQ) return;
 
-    setQuestions((prev) => [...prev, nextQ]);
-    setAsked((prev) => new Set([...prev, nextQ.id]));
+    setQuestions((p) => [...p, nextQ]);
+    setAsked((p) => new Set([...p, nextQ.id]));
 
     setCurrent(nextQ);
     setIndex((i) => i + 1);
   }
 
-  // -----------------------------
-  // PREVIOUS QUESTION
-  // -----------------------------
   function prev() {
     if (index <= 0) return;
-
     setIndex((i) => i - 1);
     setCurrent(questions[index - 1]);
   }
 
-  // -----------------------------
-  // END INTERVIEW
-  // -----------------------------
   function endInterview() {
     const total = scores.reduce((a, b) => a + b, 0);
     const max = questions.length * 10;
-
     const percent = max ? ((total / max) * 100).toFixed(1) : 0;
 
-    let result = "Weak Candidate";
-    if (percent > 80) result = "Strong Candidate";
-    else if (percent > 60) result = "Mid-Level Candidate";
-    else if (percent > 40) result = "Junior Candidate";
+    let result = "Weak";
+    if (percent > 80) result = "Strong";
+    else if (percent > 60) result = "Mid";
+    else if (percent > 40) result = "Junior";
 
     setReport({ percent, result });
   }
 
-  // -----------------------------
-  // EXPORT PDF
-  // -----------------------------
   function exportPDF() {
     const doc = new jsPDF();
 
     doc.text("Go Interview Report", 10, 10);
     doc.text(`Level: ${level}`, 10, 20);
-    doc.text(`Questions: ${questions.length}`, 10, 30);
 
-    let y = 40;
+    let y = 30;
 
     questions.forEach((q, i) => {
       doc.text(`${i + 1}. ${q.q}`, 10, y);
       y += 7;
-
-      doc.text(`Answer: ${q.a}`, 10, y);
-      y += 10;
     });
 
-    if (notes) {
-      doc.text("Notes:", 10, y + 10);
-      doc.text(notes, 10, y + 20);
-    }
-
-    doc.save("interview-report.pdf");
+    doc.save("report.pdf");
   }
 
-  // -----------------------------
-  // UI
-  // -----------------------------
   if (!current) {
-    return <div className="p-6">Loading interview session...</div>;
+    return (
+      <div className="h-screen flex items-center justify-center text-gray-500">
+        Loading interview engine...
+      </div>
+    );
   }
 
   return (
-    <div className="p-6 max-w-3xl mx-auto space-y-4">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <div className="max-w-4xl mx-auto p-6 space-y-6">
 
-      {/* HEADER */}
-      <h1 className="text-2xl font-bold">
-        Go Interview Platform
-      </h1>
+        {/* HEADER */}
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold tracking-tight">
+            Go Interview Platform
+          </h1>
 
-      {/* CONTROLS */}
-      <div className="flex gap-4 items-center">
-        <select
-          value={level}
-          onChange={(e) => setLevel(e.target.value)}
-          className="border p-2 rounded"
-        >
-          {LEVELS.map((l) => (
-            <option key={l} value={l}>
-              {l}
-            </option>
-          ))}
-        </select>
-
-        <input
-          type="number"
-          value={targetCount}
-          onChange={(e) => setTargetCount(Number(e.target.value))}
-          className="border p-2 w-20 rounded"
-        />
-      </div>
-
-      {/* QUESTION CARD */}
-      <div className="border rounded p-4 space-y-3">
-        <div className="font-semibold">
-          Q{index + 1}: {current.q}
+          <span className="text-xs px-3 py-1 rounded-full bg-black text-white">
+            LIVE SESSION
+          </span>
         </div>
 
-        <div className="text-gray-600 text-sm">
-          Answer: {current.a}
+        {/* CONTROLS */}
+        <div className="flex gap-3 items-center bg-white p-4 rounded-xl shadow-sm border">
+          <select
+            value={level}
+            onChange={(e) => setLevel(e.target.value)}
+            className="border rounded-lg p-2 text-sm"
+          >
+            {LEVELS.map((l) => (
+              <option key={l} value={l}>
+                {l.toUpperCase()}
+              </option>
+            ))}
+          </select>
+
+          <input
+            type="number"
+            value={targetCount}
+            onChange={(e) => setTargetCount(Number(e.target.value))}
+            className="border rounded-lg p-2 w-24 text-sm"
+          />
+
+          <div className="ml-auto text-xs text-gray-500">
+            Questions: {questions.length} / {targetCount}
+          </div>
         </div>
 
-        {/* RATING */}
-        <div className="flex gap-2 flex-wrap">
-          {[1,2,3,4,5,6,7,8,9,10].map((s) => (
+        {/* QUESTION CARD */}
+        <div className="bg-white border rounded-2xl shadow-sm p-6 space-y-5 transition hover:shadow-md">
+
+          {/* badge */}
+          <div className="flex gap-2">
+            <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">
+              #{index + 1}
+            </span>
+            <span className="text-xs px-2 py-1 bg-blue-100 text-blue-600 rounded-full">
+              {current.level.toUpperCase()}
+            </span>
+            <span className="text-xs px-2 py-1 bg-purple-100 text-purple-600 rounded-full">
+              {current.skill}
+            </span>
+          </div>
+
+          {/* question */}
+          <div className="text-lg font-semibold leading-relaxed">
+            {current.q}
+          </div>
+
+          {/* answer preview */}
+          <div className="text-sm text-gray-500 border-l-2 pl-3">
+            {current.a}
+          </div>
+
+          {/* rating */}
+          <div className="flex flex-wrap gap-2">
+            {[1,2,3,4,5,6,7,8,9,10].map((s) => (
+              <button
+                key={s}
+                onClick={() => rate(s)}
+                className="w-8 h-8 text-xs border rounded-lg hover:bg-black hover:text-white transition"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+
+          {/* nav */}
+          <div className="flex justify-between pt-2">
             <button
-              key={s}
-              onClick={() => rate(s)}
-              className="border px-2 py-1 rounded"
+              onClick={prev}
+              className="px-4 py-2 rounded-lg border hover:bg-gray-100"
             >
-              {s}
+              ← Prev
             </button>
-          ))}
+
+            <button
+              onClick={next}
+              className="px-4 py-2 rounded-lg bg-black text-white hover:opacity-80"
+            >
+              Next →
+            </button>
+          </div>
+
+          <button
+            onClick={endInterview}
+            className="w-full mt-2 py-2 rounded-lg border hover:bg-gray-100"
+          >
+            End Interview
+          </button>
         </div>
 
-        {/* NAV */}
-        <div className="flex justify-between">
-          <button onClick={prev} className="border px-3 py-1 rounded">
-            Prev
-          </button>
+        {/* NOTES */}
+        <textarea
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          className="w-full p-3 rounded-xl border bg-white shadow-sm"
+          placeholder="Write notes about candidate..."
+        />
 
-          <button onClick={next} className="border px-3 py-1 rounded">
-            Next
+        {/* ACTIONS */}
+        <div className="flex gap-3">
+          <button
+            onClick={exportPDF}
+            className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:opacity-90"
+          >
+            Export PDF
           </button>
         </div>
 
-        <button
-          onClick={endInterview}
-          className="border px-3 py-1 rounded w-full"
-        >
-          End Interview
-        </button>
+        {/* REPORT */}
+        {report && (
+          <div className="bg-white border rounded-xl p-5 shadow-sm">
+            <h2 className="font-bold text-lg mb-2">Final Report</h2>
+
+            <div className="flex gap-4 text-sm">
+              <div>Score: <b>{report.percent}%</b></div>
+              <div>Status: <b>{report.result}</b></div>
+            </div>
+          </div>
+        )}
+
       </div>
-
-      {/* NOTES */}
-      <textarea
-        value={notes}
-        onChange={(e) => setNotes(e.target.value)}
-        className="w-full border p-2 rounded"
-        placeholder="Write interview notes..."
-      />
-
-      {/* ACTIONS */}
-      <button
-        onClick={exportPDF}
-        className="border px-3 py-1 rounded"
-      >
-        Export PDF
-      </button>
-
-      {/* REPORT */}
-      {report && (
-        <div className="border p-4 rounded space-y-1">
-          <h2 className="font-bold">Final Report</h2>
-          <p>Score: {report.percent}%</p>
-          <p>Result: {report.result}</p>
-        </div>
-      )}
     </div>
   );
 }
